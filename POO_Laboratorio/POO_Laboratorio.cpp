@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+//Declaración de clases
 class Animal
 {
 protected:
