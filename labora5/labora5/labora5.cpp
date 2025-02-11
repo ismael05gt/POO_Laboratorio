@@ -100,7 +100,7 @@ void calcularValorTotal(vector<Producto>& inventario) {
 		total += producto.obtenerValor();
 	}
 	cout << "El valor total del inventario es: Q" << total << endl;
-}
+}//hola como estas espero que bien
 int main() {
 	vector<Producto> inventario;
 	int opcion;
