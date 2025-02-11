@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 class Producto
 {
@@ -25,7 +26,7 @@ public:
 	int obtenerStock() {
 		return stock;
 	}
-	void aumentarStock(int cantidad) {
+	void actualizarStock(int cantidad) {
 		if (cantidad > stock) {
 			cout << "No hay suficicente stock disponible." << endl;
 		}
@@ -110,11 +111,11 @@ int main() {
 		cout << "4. Actualizar stock" << endl;
 		cout << "5. Calcular valor total" << endl;
 		cout << "6. Salir" << endl;
-		cout << "Ingrese una opción: ";
+		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		switch (opcion) {
 		case 1:
-			agregarProducto(inventario);
+			agragarProducto(inventario);
 			break;
 		case 2:
 			mostrarInventario(inventario);
