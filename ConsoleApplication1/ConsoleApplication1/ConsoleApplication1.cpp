@@ -1,19 +1,80 @@
-// ConsoleApplication1.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
-
 #include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+class Vehiculo
+{
+private:
+	string marca;
+	string modelo;
+	double precio;
+public:
+	Vehiculo(string marca, string modelo, double precio) {
+		this->marca = marca;
+		this->modelo = modelo;
+		this->precio = precio;
+	}
+	void mostrarinfo() {
+		cout << "Marca: " << marca;
+		cout << " Modelo: " << modelo;
+		cout << " Precio: " << precio<<endl;
+	}
+	void getMarca(string marca) {
+		this->marca = marca;
+	}
+	void getModelo(string modelo) {
+		this->modelo = modelo;
+	}
+	void getPrecio(double precio) {
+		this->precio = precio;
+	}
+};
+class Automovil : public Vehiculo {
+private:
+	int puertas;
+public:
+	Automovil(string marca, string modelo, double precio, int puertas) : Vehiculo(marca, modelo, precio) {
+		this->puertas = puertas;
+	}
+	void mostrarinfo() {
+		Vehiculo::mostrarinfo();
+		cout << "Puertas: " << puertas << endl;
+	};
+};
+class Motocicleta : public Vehiculo {
+private:
+	int cilindraje;
+public:
+	Motocicleta(string marca, string modelo, double precio, int cilindraje) : Vehiculo(marca, modelo, precio) {
+		this->cilindraje = cilindraje;
+	}
+	void mostrarinfo() {
+		Vehiculo::mostrarinfo();
+		cout << "Cilindraje: " << cilindraje << endl;
+	};
+};
+class Camioneta: public Vehiculo
+{
+private:
+	string capacidadCarga;
 
+public:
+	Camioneta(string marca, string modelo, double precio, string capacidadCarga) : Vehiculo(marca, modelo, precio) {
+		this->capacidadCarga = capacidadCarga;
+	}
+	void mostrarinfo() {
+		Vehiculo::mostrarinfo();
+		cout << "Capacidad de carga: " << capacidadCarga << endl;
+	};
+};
 int main()
 {
-    std::cout << "Hello World!\n";
+	vector<Vehiculo*> vehiculos;
+	vehiculos.push_back(new Automovil("Toyota", "Corolla", 20000, 4));
+	vehiculos.push_back(new Motocicleta("Honda", "CBR", 10000, 250));
+	vehiculos.push_back(new Camioneta("Mazda", "BT-50", 30000, "1 tonelada"));
+	for (int i = 0; i < vehiculos.size(); i++) {
+		vehiculos[i]->mostrarinfo();
+	}
+	return 0;
 }
-
-// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
-// Depurar programa: F5 o menú Depurar > Iniciar depuración
-
-// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
-//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
-//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
-//   4. Use la ventana Lista de errores para ver los errores
-//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
-//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
